@@ -11,9 +11,7 @@ function App() {
   }, []);
 
   const fetchItems = () => {
-    fetch(
-      "https://ec2-18-142-144-206.ap-southeast-1.compute.amazonaws.com/items/"
-    )
+    fetch("https://gsd84267tf.execute-api.ap-southeast-1.amazonaws.com/items/")
       .then((response) => response.json())
       .then((data) => setItems(data));
   };
@@ -23,7 +21,7 @@ function App() {
     const newItem = { name, description };
 
     fetch(
-      "https://ec2-18-142-144-206.ap-southeast-1.compute.amazonaws.com/items/",
+      "https://gsd84267tf.execute-api.ap-southeast-1.amazonaws.com/items/",
       {
         method: "POST",
         headers: {
