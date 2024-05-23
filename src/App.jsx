@@ -11,7 +11,9 @@ function App() {
   }, []);
 
   const fetchItems = () => {
-    fetch("http://18.142.144.206/items/")
+    fetch(
+      "https://ec2-18-142-144-206.ap-southeast-1.compute.amazonaws.com/items/"
+    )
       .then((response) => response.json())
       .then((data) => setItems(data));
   };
@@ -20,13 +22,16 @@ function App() {
     event.preventDefault();
     const newItem = { name, description };
 
-    fetch("http://18.142.144.206/items/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    })
+    fetch(
+      "https://ec2-18-142-144-206.ap-southeast-1.compute.amazonaws.com/items/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      }
+    )
       .then((response) => response.json())
       .then(() => {
         fetchItems(); // Fetch items again to update the list
