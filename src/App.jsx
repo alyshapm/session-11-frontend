@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   const fetchItems = () => {
-    fetch("http://localhost:8000/items/")
+    fetch("http://18.142.144.206/items/")
       .then((response) => response.json())
       .then((data) => setItems(data));
   };
@@ -20,7 +20,7 @@ function App() {
     event.preventDefault();
     const newItem = { name, description };
 
-    fetch("http://localhost:8000/items/", {
+    fetch("http://18.142.144.206/items/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
